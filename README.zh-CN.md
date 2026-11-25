@@ -4,7 +4,9 @@ DeepSeek Harness 新对话（欢迎页）上的彩色胶囊粒子动效。
 
 [English](./README.md)
 
-![效果截图](assets/screenshot.png)
+| 深色主题 | 浅色主题 |
+|---|---|
+| ![深色主题](assets/screenshot.png) | ![浅色主题](assets/screenshot-light.png) |
 
 ## 它做什么
 

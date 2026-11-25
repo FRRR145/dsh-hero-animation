@@ -4,7 +4,9 @@ Animated capsule dot field for the DeepSeek Harness new-session ("hero") screen.
 
 [中文说明](./README.zh-CN.md)
 
-![screenshot](assets/screenshot.png)
+| Dark theme | Light theme |
+|---|---|
+| ![dark theme](assets/screenshot.png) | ![light theme](assets/screenshot-light.png) |
 
 ## What it does
 
