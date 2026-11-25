@@ -4,12 +4,23 @@ DeepSeek Harness 新对话（欢迎页）上的彩色胶囊粒子动效。
 
 [English](./README.md)
 
+![效果截图](assets/screenshot.png)
+
 ## 它做什么
 
-注册到 `conversation.hero.frame` 插槽，在新对话页内容背后绘制 84 颗彩色胶囊：
-同心波呼吸、跟随指针偏移、沿七色调色板变色。画布为
-`position: fixed; inset: 0; z-index: -1; pointer-events: none`，
+注册到 `conversation.hero.frame` 插槽，在新对话页内容背后绘制 84 颗彩色胶囊。
+画布为 `position: fixed; inset: 0; z-index: -1; pointer-events: none`，
 不拦截任何点击或键盘输入。
+
+视觉表现：
+
+- **烟花绽放感** —— 胶囊按黄金角螺旋排布，被一圈圈向外推进的波前推散，
+  整体像烟花炸开，之后持续呼吸、缓慢漂移。
+- **渐变色** —— 每颗胶囊的颜色取自一段五级色标渐变
+  （暗绿 → 琥珀 → 品红 → 紫 → 蓝），由缓慢流动的噪声场驱动，
+  所以相邻胶囊颜色相互过渡，而不是一块块死色。
+- **跟随鼠标** —— 整个场以每帧 `0.075` 的缓动跟随指针（`pointermove`），
+  靠近光标的胶囊会放大并转向。
 
 纯 Canvas 2D 实现，不使用 WebGL，除 React 外无依赖。
 
