@@ -1,0 +1,43 @@
+{
+  "name": "dsh-hero-animation",
+  "version": "0.1.0",
+  "description": "Animated capsule particle field for the DeepSeek Harness new-session (hero) screen.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FRRR145/dsh-hero-animation.git"
+  },
+  "homepage": "https://github.com/FRRR145/dsh-hero-animation#readme",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "animation",
+    "canvas",
+    "ui"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
