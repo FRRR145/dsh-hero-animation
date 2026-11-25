@@ -20,4 +20,9 @@ jobs:
       - name: package.json is valid JSON
         run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'));console.log('ok')"
       - name: no local paths leaked
-        run: "! grep -rn 'D:/dsh-work\|@local/' --include='*.js' --include='*.json' --include='*.yml' ."
+        run: |
+          if grep -rnE 'D:/dsh-work|@local/' --include='*.js' --include='*.json' --include='*.yml' --exclude-dir=.github . ; then
+            echo "::error::local machine paths leaked into the repo"
+            exit 1
+          fi
+          echo "clean"
