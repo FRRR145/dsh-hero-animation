@@ -1,0 +1,23 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: client.js syntax
+        run: node --check client.js
+      - name: host half imports
+        run: node --input-type=module -e "import('./index.js').then(() => console.log('ok'))"
+      - name: package.json is valid JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'));console.log('ok')"
+      - name: no local paths leaked
+        run: "! grep -rn 'D:/dsh-work\|@local/' --include='*.js' --include='*.json' --include='*.yml' ."
